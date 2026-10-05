@@ -9,4 +9,4 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "GhostWire Actions registration OK"
+      - run: echo "GhostWire Actions registration OK - enabled"
