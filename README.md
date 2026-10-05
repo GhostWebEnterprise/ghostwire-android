@@ -1,7 +1,7 @@
 # GhostWire for Android
 
 <p align="center">
-  <img src="docs/branding/ghostwire-logo.svg" alt="GhostWire" width="360">
+  <img src="file_00000000d3e88246aa6ad468d2aab56e.png" alt="GhostWire logo" width="360">
 </p>
 
 **GhostWire** is the GhostWeb Enterprise branded Android client built on the Wire Android open-source codebase.
