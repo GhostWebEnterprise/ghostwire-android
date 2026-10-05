@@ -103,12 +103,29 @@ Changes made by GhostWeb Enterprise remain subject to this repository's [LICENSE
 ## Development status
 
 > [!IMPORTANT]
-> **GhostWire is under active development and is not presented as production-ready.** Branding, UI, build configuration and functionality may change while the Android migration and verification gates continue.
+> **GhostWire is in active development and is not yet considered production-ready.** The project is being migrated and verified incrementally so that GhostWire branding and UI changes do not compromise Wire/Kalium compatibility or Android application behavior.
+
+### Current focus
+
+| Area | Status | Goal |
+| --- | --- | --- |
+| **GhostWire branding** | 🟡 In progress | Consistent GhostWire identity across Android and project assets |
+| **UI integration** | 🟡 In progress | Complete the GhostWeb-oriented interface across user-visible surfaces |
+| **Android build** | 🟡 Verification | Keep development builds reproducible and CI-verified |
+| **Wire / Kalium compatibility** | 🟡 Preserved & tested | Avoid regressions in protocol, backend and core communication behavior |
+| **App assets** | 🟡 Verification | Confirm launcher, startup and packaged branding in the built application |
+| **Release readiness** | 🔴 Not ready | Require successful build, tests, signing and packaged-app verification |
+
+### Release gate
+
+A GhostWire build should only be treated as release-ready after the relevant CI and packaging gates have passed:
+
+**Build → tests → static analysis → compatibility checks → signed package → packaged-app verification → release**
 
 > [!WARNING]
-> GhostWire is currently a development project. Builds may be incomplete, experimental or unstable. Do not assume that an artifact is security-reviewed or production-ready unless a specific GhostWire release explicitly states that it has completed the required verification gates.
+> Development artifacts can be incomplete, experimental or unstable. A successful individual workflow does **not** by itself mean that a build has been security-reviewed or approved for production use.
 
-Current development priorities include branding integration, UI migration, Android build reliability, compatibility preservation and verification of packaged application assets.
+The immediate priority is to finish the branding/UI migration while preserving upstream compatibility, then verify the resulting Android package end-to-end before promoting a release.
 
 ## Support
 
