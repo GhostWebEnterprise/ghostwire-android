@@ -1,4 +1,4 @@
-name: "Develop Push"
+name: "GhostWire Android Build"
 
 on:
   workflow_dispatch:
@@ -45,5 +45,5 @@ jobs:
             ]
           }
         ]
-      enable-deployment: true
+      enable-deployment: false
     secrets: inherit
