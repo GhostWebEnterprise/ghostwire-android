@@ -4,6 +4,8 @@
   <img src="file_00000000a720824697e0f3cedcd69e8f.png" alt="GhostWire logo" width="360">
 </p>
 
+
+[![Project Hub](https://img.shields.io/badge/Project%20Hub-ghostweb.bot.cd-0B57D0?style=plastic&logo=googlechrome&logoColor=white)](https://ghostweb.bot.cd/ghostwire.html)
 **GhostWire** is the GhostWeb Enterprise branded Android client built on the Wire Android open-source codebase.
 
 > [!IMPORTANT]
