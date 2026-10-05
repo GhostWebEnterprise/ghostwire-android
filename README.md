@@ -18,9 +18,6 @@
 
 </div>
 
-> [!IMPORTANT]
-> **GhostWire is under active development and is not presented as production-ready.** Branding, UI, build configuration and functionality may change while the Android migration and verification gates continue.
-
 ## Overview
 
 GhostWire applies the **GhostWeb Enterprise** identity to a native Android communication client while preserving compatibility-critical parts of the upstream Wire architecture. The goal is a distinct GhostWire experience without breaking protocol interoperability, backend communication or the underlying Kalium integration.
@@ -104,6 +101,9 @@ Wire, Kalium and associated trademarks belong to their respective owners. GhostW
 Changes made by GhostWeb Enterprise remain subject to this repository's [LICENSE](./LICENSE) and applicable upstream licensing requirements.
 
 ## Development status
+
+> [!IMPORTANT]
+> **GhostWire is under active development and is not presented as production-ready.** Branding, UI, build configuration and functionality may change while the Android migration and verification gates continue.
 
 > [!WARNING]
 > GhostWire is currently a development project. Builds may be incomplete, experimental or unstable. Do not assume that an artifact is security-reviewed or production-ready unless a specific GhostWire release explicitly states that it has completed the required verification gates.
