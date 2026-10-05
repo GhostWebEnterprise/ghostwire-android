@@ -36,7 +36,7 @@
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">@bool/is_light_theme
         </item>
         <item name="windowSplashScreenBackground">@color/background</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_wire_logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_ghostwire_logo</item>
         <item name="windowSplashScreenAnimationDuration">@integer/splashscreen_animation_ms</item>
         <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>

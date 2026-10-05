@@ -29,7 +29,7 @@ import com.wire.android.R
 @Composable
 fun Logo(modifier: Modifier = Modifier) {
     Image(
-        painter = painterResource(id = R.drawable.ic_wire_logo),
+        painter = painterResource(id = R.drawable.ic_ghostwire_logo),
         contentDescription = null,
         contentScale = ContentScale.Fit,
         modifier = modifier,

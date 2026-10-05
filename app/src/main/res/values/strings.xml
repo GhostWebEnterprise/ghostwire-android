@@ -106,7 +106,7 @@
     <string name="content_description_leave_the_conversation">Leave the conversation</string>
     <string name="content_description_delete_the_conversation">Delete the conversation</string>
     <string name="content_description_conversation_phone_icon">Start audio call</string>
-    <string name="content_description_welcome_wire_logo">Wire</string>
+    <string name="content_description_welcome_wire_logo">GhostWire</string>
     <string name="content_description_conversation_enable_rich_text_mode">Open formatting options</string>
     <string name="content_description_conversation_enable_drawing_mode">Open sketch to draw or write</string>
     <string name="content_description_conversation_rich_text_header">Use a heading</string>
@@ -119,7 +119,7 @@
     <string name="content_description_conversation_back_btn">Go back to conversation list</string>
     <string name="content_description_conversation_open_details_label">open conversation details</string>
     <string name="content_description_new_conversation">New. Start a new conversation</string>
-    <string name="content_description_new_meeting">Start or schedule a new Wire Meeting</string>
+    <string name="content_description_new_meeting">Start or schedule a new GhostWire Meeting</string>
     <string name="content_description_back_button">Back</string>
     <string name="content_description_send_button">Send</string>
     <string name="content_description_timed_message_button">Self-deleting messages</string>
