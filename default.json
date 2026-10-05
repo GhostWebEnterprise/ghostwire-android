@@ -89,7 +89,7 @@
             "enforce_configuration_signature": true
         }
     },
-    "application_name": "Wire",
+    "application_name": "GhostWire",
     "allow_sso_authentication_option": true,
     "url_support": "https://support.wire.com",
     "allow_account_creation": true,
