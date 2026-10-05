@@ -7,43 +7,43 @@ on:
       - develop
 
 permissions:
-  contents: write
-  actions: read
+  contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ghostwire-android-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  # Build for direct pushes to develop (includes alpha flavor deployment to the internal store)
-  build-develop:
-    permissions:
-      contents: write
-      actions: read
-      security-events: write
-    uses: ./.github/workflows/build-unified.yml
-    with:
-      concurrency-group-suffix: push
-      build-config: |
-        [
-          {
-            "flavor": "Alpha",
-            "variant": "Compat",
-            "keystore-type": "internal",
-            "build-type": "both",
-            "generate-version-file": false,
-            "deployment-targets": [
-              {
-                "type": "s3"
-              },
-              {
-                "type": "google-play",
-                "package-name": "com.wire.internal",
-                "track": "${{ vars.INTERNAL_APP_TRACK }}",
-                "status": "completed"
-              }
-            ]
-          }
-        ]
-      enable-deployment: false
-    secrets: inherit
+  build:
+    name: Build GhostWire Alpha Compat APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
+      - name: Build unsigned Alpha Compat APK
+        env:
+          ENABLE_SIGNING: "false"
+        run: ./gradlew app:assembleAlphaCompat --stacktrace
+
+      - name: Upload APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: GhostWire-Alpha-Compat-APK
+          path: app/build/outputs/apk/**/*.apk
+          if-no-files-found: error
+          retention-days: 7
