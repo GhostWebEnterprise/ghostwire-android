@@ -37,3 +37,11 @@ See https://grapheneos.org/features for the OS feature boundary.
 
 No Android build tools are installed in the authoring environment; CI and device
 verification must pass before merging.
+
+## Current CI blocker
+
+The PR validation run fails before creating jobs because repository Actions policy
+only permits actions from repositories owned by GhostWebEnterprise. Existing
+workflows use external actions including actions/checkout, actions/upload-artifact
+and Gradle setup actions. An owner must decide which pinned actions to allow
+before CI can execute. No test success is claimed.

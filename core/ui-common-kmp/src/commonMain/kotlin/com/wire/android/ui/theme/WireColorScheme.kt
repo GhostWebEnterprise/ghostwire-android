@@ -258,15 +258,15 @@ private val DarkWireColorScheme = WireColorScheme(
 
     // background colors
     background = Color.Black, onBackground = Color.White,
-    surface = Color(0xFF121212), onSurface = Color.White,
-    surfaceVariant = Color(0xFF242424), onSurfaceVariant = Color.White,
+    surface = WireColorPalette.NeutralDarkSurface, onSurface = Color.White,
+    surfaceVariant = WireColorPalette.NeutralDarkSurfaceVariant, onSurfaceVariant = Color.White,
     inverseSurface = Color.White, inverseOnSurface = Color.Black,
-    surfaceBright = Color(0xFF383838), surfaceDim = Color(0xFF121212),
+    surfaceBright = WireColorPalette.NeutralDarkSurfaceBright, surfaceDim = WireColorPalette.NeutralDarkSurface,
     surfaceContainerLowest = Color.Black,
-    surfaceContainerLow = Color(0xFF121212),
-    surfaceContainer = Color(0xFF1C1C1C),
-    surfaceContainerHigh = Color(0xFF282828),
-    surfaceContainerHighest = Color(0xFF333333),
+    surfaceContainerLow = WireColorPalette.NeutralDarkSurface,
+    surfaceContainer = WireColorPalette.NeutralDarkContainer,
+    surfaceContainerHigh = WireColorPalette.NeutralDarkContainerHigh,
+    surfaceContainerHighest = WireColorPalette.NeutralDarkContainerHighest,
 
     // buttons
     primaryButtonEnabled = WireColorPalette.DarkBlue500, onPrimaryButtonEnabled = Color.Black,
