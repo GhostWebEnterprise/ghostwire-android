@@ -203,7 +203,7 @@ class GlobalDataStore @Inject constructor(@ApplicationContext private val contex
     }
 
     fun selectedThemeOptionFlow(): Flow<ThemeOption> =
-        getStringPreference(APP_THEME_OPTION, ThemeOption.SYSTEM.toString())
+        getStringPreference(APP_THEME_OPTION, ThemeOption.DARK.toString())
             .map { ThemeOption.valueOf(it) }
 
     fun enterToSendFlow(): Flow<Boolean> = getBooleanPreference(ENTER_TO_SENT, false)
