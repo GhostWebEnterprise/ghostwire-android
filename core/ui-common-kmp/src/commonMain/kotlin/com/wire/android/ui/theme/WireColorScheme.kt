@@ -257,16 +257,16 @@ private val DarkWireColorScheme = WireColorScheme(
     secondaryText = WireColorPalette.Gray60,
 
     // background colors
-    background = WireColorPalette.Gray100, onBackground = Color.White,
-    surface = WireColorPalette.Gray95, onSurface = Color.White,
-    surfaceVariant = WireColorPalette.Gray90, onSurfaceVariant = Color.White,
+    background = Color.Black, onBackground = Color.White,
+    surface = WireColorPalette.NeutralDarkSurface, onSurface = Color.White,
+    surfaceVariant = WireColorPalette.NeutralDarkSurfaceVariant, onSurfaceVariant = Color.White,
     inverseSurface = Color.White, inverseOnSurface = Color.Black,
-    surfaceBright = WireColorPalette.Gray70, surfaceDim = WireColorPalette.Gray95,
-    surfaceContainerLowest = WireColorPalette.Gray100,
-    surfaceContainerLow = WireColorPalette.Gray95,
-    surfaceContainer = WireColorPalette.Gray90,
-    surfaceContainerHigh = Gray80,
-    surfaceContainerHighest = WireColorPalette.Gray70,
+    surfaceBright = WireColorPalette.NeutralDarkSurfaceBright, surfaceDim = WireColorPalette.NeutralDarkSurface,
+    surfaceContainerLowest = Color.Black,
+    surfaceContainerLow = WireColorPalette.NeutralDarkSurface,
+    surfaceContainer = WireColorPalette.NeutralDarkContainer,
+    surfaceContainerHigh = WireColorPalette.NeutralDarkContainerHigh,
+    surfaceContainerHighest = WireColorPalette.NeutralDarkContainerHighest,
 
     // buttons
     primaryButtonEnabled = WireColorPalette.DarkBlue500, onPrimaryButtonEnabled = Color.Black,
@@ -332,7 +332,7 @@ private val DarkWireColorScheme = WireColorScheme(
     emojiBackgroundColor = Color.Black,
     defaultSelectedItemInLoadingState = WireColorPalette.DarkBlue800,
     onScrim = Color.White,
-    bubblesBackground = WireColorPalette.Gray100,
+    bubblesBackground = Color.Black,
     selfBubble = BubbleColors(
         primary = WireColorPalette.LightBlue800,
         secondary = WireColorPalette.LightBlue900,

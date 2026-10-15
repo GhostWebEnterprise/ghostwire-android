@@ -18,15 +18,22 @@
 
 package com.wire.android.ui.home.settings.privacy
 
-import com.wire.android.BuildConfig
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import com.wire.android.ui.home.settings.privacySettingsViewModel
+import com.wire.android.BuildConfig
 import com.wire.android.R
+import com.wire.android.model.Clickable
 import com.wire.android.ui.common.colorsScheme
 import com.wire.android.ui.common.dimensions
 import com.wire.android.ui.common.divider.WireDivider
@@ -36,6 +43,7 @@ import com.wire.android.ui.common.topappbar.WireCenterAlignedTopAppBar
 import com.wire.android.ui.home.conversations.details.options.ArrowType
 import com.wire.android.ui.home.conversations.details.options.GroupConversationOptionsItem
 import com.wire.android.ui.home.settings.SwitchState
+import com.wire.android.ui.home.settings.privacySettingsViewModel
 import com.wire.android.ui.theme.WireTheme
 
 @Composable
@@ -43,6 +51,7 @@ fun PrivacySettingsConfigScreen(
     onBackPressed: () -> Unit,
     viewModel: PrivacySettingsViewModel = privacySettingsViewModel()
 ) {
+    val context = LocalContext.current
     with(viewModel) {
         PrivacySettingsScreenContent(
             isAnonymousUsageDataEnabled = state.isAnalyticsUsageEnabled,
@@ -57,6 +66,17 @@ fun PrivacySettingsConfigScreen(
             setScreenshotCensoringConfig = ::setScreenshotCensoringConfig,
             setAnonymousUsageDataEnabled = ::setAnonymousUsageDataEnabled,
             onBackPressed = onBackPressed,
+            onOpenPermissions = {
+                context.startPrivacySettingsActivity(
+                    Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:${context.packageName}"))
+                )
+            },
+            onOpenNotifications = {
+                context.startPrivacySettingsActivity(
+                    Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                        .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                )
+            },
         )
     }
 }
@@ -76,6 +96,8 @@ fun PrivacySettingsScreenContent(
     setAnonymousUsageDataEnabled: (Boolean) -> Unit,
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier,
+    onOpenPermissions: () -> Unit = {},
+    onOpenNotifications: () -> Unit = {},
 ) {
     WireScaffold(
         modifier = modifier,
@@ -91,7 +113,20 @@ fun PrivacySettingsScreenContent(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(internalPadding)
+                .verticalScroll(rememberScrollState())
         ) {
+            GroupConversationOptionsItem(
+                title = stringResource(R.string.privacy_app_permissions_title),
+                subtitle = stringResource(R.string.privacy_app_permissions_description),
+                clickable = Clickable(onClick = onOpenPermissions)
+            )
+            WireDivider(color = colorsScheme().divider)
+            GroupConversationOptionsItem(
+                title = stringResource(R.string.privacy_notifications_title),
+                subtitle = stringResource(R.string.privacy_notifications_description),
+                clickable = Clickable(onClick = onOpenNotifications)
+            )
+            WireDivider(color = colorsScheme().divider)
             if (shouldShowAnalyticsUsage) {
                 GroupConversationOptionsItem(
                     title = stringResource(id = R.string.settings_send_anonymous_usage_data_title),
@@ -165,4 +200,17 @@ fun PreviewSendReadReceipts() = WireTheme {
         setAnonymousUsageDataEnabled = {},
         onBackPressed = {},
     )
+}
+
+/** Some Android distributions do not expose every Settings activity. */
+private fun android.content.Context.startPrivacySettingsActivity(intent: Intent) {
+    try {
+        startActivity(intent)
+    } catch (_: ActivityNotFoundException) {
+        if (intent.action != Settings.ACTION_APPLICATION_DETAILS_SETTINGS) {
+            startPrivacySettingsActivity(
+                Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
+            )
+        }
+    }
 }

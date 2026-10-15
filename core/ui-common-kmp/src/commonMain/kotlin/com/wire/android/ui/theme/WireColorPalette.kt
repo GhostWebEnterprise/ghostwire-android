@@ -24,6 +24,26 @@ import androidx.compose.ui.graphics.Color
 @Suppress("MagicNumber")
 object WireColorPalette {
 
+    // Neutral surfaces for GhostWire's GrapheneOS-inspired dark appearance.
+
+    @Stable
+    val NeutralDarkSurface = Color(0xFF121212)
+
+    @Stable
+    val NeutralDarkSurfaceVariant = Color(0xFF242424)
+
+    @Stable
+    val NeutralDarkSurfaceBright = Color(0xFF383838)
+
+    @Stable
+    val NeutralDarkContainer = Color(0xFF1C1C1C)
+
+    @Stable
+    val NeutralDarkContainerHigh = Color(0xFF282828)
+
+    @Stable
+    val NeutralDarkContainerHighest = Color(0xFF333333)
+
     @Stable
     val LightBlue50 = Color(0xFFE7F0FA)
 

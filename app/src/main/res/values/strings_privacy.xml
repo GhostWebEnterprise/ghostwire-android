@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="privacy_app_permissions_title">App permissions</string>
+    <string name="privacy_app_permissions_description">Review camera, microphone, contacts and other access in Android settings. Available controls depend on your device. Revoking access can limit related features.</string>
+    <string name="privacy_notifications_title">Notification privacy</string>
+    <string name="privacy_notifications_description">Review notification channels and lock screen visibility in Android settings. Available controls depend on your device.</string>
+</resources>
